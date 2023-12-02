@@ -8,7 +8,7 @@ function Todos() {
   console.log(todos);
   return (
     <div>
-      {todos.length == 0 ? (
+      {todos.length === 0 ? (
         <div>Start adding Your Todos...</div>
       ) : (
         <div className="m-auto ">
@@ -17,7 +17,9 @@ function Todos() {
               <p>{i + 1}</p>
               <p>{elem.todo}</p>
               <button>Edit</button>
-              <button onClick={()=>dispatch(removeTodo(elem.id))}>Remove</button>
+              <button onClick={() => dispatch(removeTodo(elem.id))}>
+                Remove
+              </button>
             </div>
           ))}
         </div>
