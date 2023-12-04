@@ -7,7 +7,7 @@ function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
-  console.log(todos);
+  // console.log(todos);
   return (
     <div>
       {todos.length === 0 ? (
