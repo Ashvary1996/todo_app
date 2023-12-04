@@ -25,7 +25,15 @@ const todoSlice = createSlice({
       state.todos = newTodos;
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
     },
-    editTodo: (state, action) => {},
+    editTodo: (state, action) => {
+      const { id, updatedTodo } = action.payload;
+      // const searchTodo = state.todos.filter((todo) => todo.id == id);
+      const searchTodo = state.todos.find((todo) => todo.id == id);
+      if (searchTodo) {
+        searchTodo.todo = updatedTodo;
+      }
+      localStorage.setItem("myTodos", JSON.stringify(state.todos));
+    },
   },
 });
 
