@@ -28,7 +28,7 @@ const todoSlice = createSlice({
     editTodo: (state, action) => {
       const { id, updatedTodo } = action.payload;
       // const searchTodo = state.todos.filter((todo) => todo.id == id);
-      const searchTodo = state.todos.find((todo) => todo.id == id);
+      const searchTodo = state.todos.find((todo) => todo.id === id);
       if (searchTodo) {
         searchTodo.todo = updatedTodo;
       }
