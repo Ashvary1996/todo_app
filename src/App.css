@@ -37,6 +37,32 @@
   }
 }
 /* .................................................. */
-.strikethrough:checked + span {
+.strikethrough:checked + p {
   text-decoration: line-through;
+  color: gray;
+}
+@media only screen and (min-width: 200px) and (max-width: 850px) {
+  .todoBtns {
+    position: static;
+    /* background-color: teal; */
+    font-size: 20px;
+  }
+  .edit {
+    background-color: rgb(103, 143, 65) !important;
+    border-radius: 100%;
+  }
+  .edit:hover {
+    background-color: rgba(255, 255, 0, 0.779) !important;
+    border-radius: 100%;
+    color: white;
+  }
+  .remove {
+    background-color: rgb(65, 143, 143) !important;
+    border-radius: 100%;
+  }
+  .remove:hover {
+    background-color: rgba(255, 0, 0, 0.747) !important;
+    border-radius: 100%;
+    color: white;
+  }
 }
