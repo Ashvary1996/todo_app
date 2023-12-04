@@ -14,6 +14,7 @@ const todoSlice = createSlice({
       const newTodo = {
         id: nanoid(),
         todo: action.payload,
+        completed: false,
       };
       state.todos.push(newTodo);
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
@@ -27,15 +28,26 @@ const todoSlice = createSlice({
     },
     editTodo: (state, action) => {
       const { id, updatedTodo } = action.payload;
-      // const searchTodo = state.todos.filter((todo) => todo.id == id);
       const searchTodo = state.todos.find((todo) => todo.id === id);
       if (searchTodo) {
         searchTodo.todo = updatedTodo;
       }
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
     },
+    checkingcheckBox: (state, action) => {
+      const id = action.payload;
+      const searchTodo = state.todos.find((todo) => todo.id === id);
+      if (searchTodo.completed === false) {
+        searchTodo.completed = true;
+      } else {
+        searchTodo.completed = false;
+      }
+      // console.log("Completed", searchTodo.todo, searchTodo.completed);
+      localStorage.setItem("myTodos", JSON.stringify(state.todos));
+    },
   },
 });
 
-export const { addTodo, removeTodo, editTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, editTodo, checkingcheckBox } =
+  todoSlice.actions;
 export default todoSlice.reducer;

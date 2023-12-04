@@ -9,7 +9,7 @@ function EditTodo() {
   const selectedTodo = todos.filter((todo) => todo.id === id);
   const { todo } = selectedTodo[0];
   const [updatingTodo, setUpdatingTodo] = useState(todo);
-  console.log(updatingTodo);
+  // console.log(updatingTodo);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (e) => {

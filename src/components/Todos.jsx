@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTodo } from "../redux/todoSlice";
+import { checkingcheckBox, removeTodo } from "../redux/todoSlice";
 import { Link } from "react-router-dom";
 
 function Todos() {
@@ -26,6 +26,8 @@ function Todos() {
                 name="packersOff"
                 className="strikethrough mr-4 h-6 mt-1 w-6 hover:cursor-pointer text-red-700"
                 id="checkbox"
+                checked={elem.completed}
+                onChange={() => dispatch(checkingcheckBox(elem.id))}
               />
 
               <p className="w-[55%]   ">{elem.todo}</p>
