@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
+import { toast } from "react-toastify";
 
 function AddTodo() {
   const [input, setInput] = useState("");
@@ -9,7 +10,10 @@ function AddTodo() {
   const handleTodo = (e) => {
     e.preventDefault();
     dispatch(addTodo(input));
-    // setInput("");
+    setInput("");
+    toast.success(`Todo Added: ${input.slice(0,12)}...`,{
+      pauseOnFocusLoss: false
+    });
   };
 
   return (

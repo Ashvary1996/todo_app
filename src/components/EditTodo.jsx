@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editTodo } from "../redux/todoSlice";
-
+import { toast } from "react-toastify";
 function EditTodo() {
   const { id } = useParams();
   const todos = useSelector((state) => state.todos);
@@ -10,12 +10,15 @@ function EditTodo() {
   const { todo } = selectedTodo[0];
   const [updatingTodo, setUpdatingTodo] = useState(todo);
   // console.log(updatingTodo);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(editTodo({ id: id, updatedTodo: updatingTodo }));
     navigate("/");
+    toast.info(`Todo Updated: ${updatingTodo.slice(0, 12)}`, {
+      pauseOnFocusLoss: false,
+    });
   };
 
   return (

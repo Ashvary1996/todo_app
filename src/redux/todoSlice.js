@@ -21,7 +21,7 @@ const todoSlice = createSlice({
     },
 
     removeTodo: (state, action) => {
-      console.log("remove from redux", action.payload);
+      // console.log("remove from redux", action.payload);
       const newTodos = state.todos.filter((todo) => todo.id !== action.payload);
       state.todos = newTodos;
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
@@ -32,6 +32,7 @@ const todoSlice = createSlice({
       if (searchTodo) {
         searchTodo.todo = updatedTodo;
       }
+
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
     },
     checkingcheckBox: (state, action) => {

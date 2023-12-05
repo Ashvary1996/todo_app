@@ -2,12 +2,17 @@ import "./App.css";
 import AddTodo from "./components/AddTodo";
 import EditTodo from "./components/EditTodo";
 import Todos from "./components/Todos";
-import { BrowserRouter,Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
+      <ToastContainer />
         <Routes>
           <Route
             path="/"
