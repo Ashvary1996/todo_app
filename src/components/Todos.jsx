@@ -12,15 +12,17 @@ function Todos() {
   return (
     <div>
       {todos.length === 0 ? (
-        <div>Start adding Your Todos...</div>
+        <div className="text-4xl text-gray-500 font-semibold">
+          Start adding Your Todos...
+        </div>
       ) : (
-        <div className="m-auto mt-8 w-[70%]  relative">
+        <div className=" m-auto mt-8 w-3/4  relative">
           {todos.map((elem, i) => (
             <div
               key={elem.id}
-              className="text-2xl flex  w-[100%] border-1 gap-2 p-5 mb-5 rounded-lg bg-gray-800 pb-8"
+              className="todoSDiv text-2xl flex  w-[100%] border-1 gap-2 p-5 mb-5 rounded-lg  pb-8  "
             >
-              <p className="w-10 ">{i + 1} .</p>
+              <p className="w-10 ">{i + 1}</p>
 
               <input
                 type="checkbox"
@@ -31,7 +33,7 @@ function Todos() {
                 onChange={() => dispatch(checkingcheckBox(elem.id))}
               />
 
-              <p className="w-[55%]   ">{elem.todo}</p>
+              <p className="w-[65%] lg:[10%] text-amber-200  ">{elem.todo}</p>
 
               <div className=" todoBtns absolute right-[5%] m-auto">
                 <Link

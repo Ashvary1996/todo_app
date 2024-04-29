@@ -22,22 +22,24 @@ function EditTodo() {
   };
 
   return (
-    <div className="m-auto border-2 mt-10">
-      <h1 className="text-2xl text-gray-400 font-semibold">EditTodo</h1>
+    <div className="m-auto   mt-10">
+      <h1 className="text-3xl text-amber-700 font-semibold">Edit Selected Todo</h1>
       <form onSubmit={handleSubmit} className="mt-5">
-        <label htmlFor="todo" className="text-lg">
-          {" "}
-          Todo :{" "}
+        <label
+          htmlFor="todo"
+          className="text-lg text-zinc-700 pr-2 font-semibold"
+        >
+          Todo :
         </label>
         <input
-          className="rounded text-xl text-blue-950 text-center "
+          className="rounded text-blue-950 text-center text-2xl focus:outline-yellow-500 p-3 w-3/5 mb-5 mt-5 "
           type="text"
           name="todo"
           value={updatingTodo}
           onChange={(e) => setUpdatingTodo(e.target.value)}
         />
         <br />
-        <button className="bg-red-600 p-2 mt-2 rounded-lg font-semibold">
+        <button className="bg-red-600 p-2 mt-2 rounded-lg font-semibold text-xl">
           Update
         </button>
       </form>

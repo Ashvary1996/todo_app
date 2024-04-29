@@ -1,46 +1,21 @@
 .App {
   text-align: center;
+  height: 100vh;
+}
+.App ::selection {
+  background-color: rgba(255, 228, 196, 0.559);
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* .................................................. */
 .strikethrough:checked + p {
   text-decoration: line-through;
   color: gray;
 }
+.todoSDiv {
+  background-color: rgba(0, 0, 0, 0.54);
+ 
+}
+
 @media only screen and (min-width: 200px) and (max-width: 850px) {
   .todoBtns {
     position: static;
@@ -48,7 +23,7 @@
     font-size: 20px;
   }
   .edit {
-    background-color: rgb(103, 143, 65) !important;
+    background-color: rgb(131, 208, 60) !important;
     border-radius: 100%;
   }
   .edit:hover {
@@ -57,7 +32,7 @@
     color: white;
   }
   .remove {
-    background-color: rgb(65, 143, 143) !important;
+    background-color: rgb(57, 175, 175) !important;
     border-radius: 100%;
   }
   .remove:hover {

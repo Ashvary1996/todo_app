@@ -9,31 +9,33 @@ function AddTodo() {
 
   const handleTodo = (e) => {
     e.preventDefault();
+    if (!input.trim()) {
+      toast.error("Please enter a todo.");
+      return;
+    }
     dispatch(addTodo(input));
     setInput("");
-    toast.success(`Todo Added: ${input.slice(0,12)}...`,{
-      pauseOnFocusLoss: false
+    toast.success(`Todo Added: ${input.slice(0, 12)}...`, {
+      pauseOnFocusLoss: false,
     });
   };
 
   return (
-    <div className="mt-2 p-1">
-      <h1 className="text-teal-400 text-3xl font-bold mb-4">my-Todo App</h1>
-      <form onSubmit={handleTodo}>
+    <div className="container mx-auto p-6 md:p-8 lg:p-10">
+      <h1 className="text-4xl font-bold text-yellow-600 mb-6">My Todo List</h1>
+
+      <form onSubmit={handleTodo} className="flex items-center">
         <input
           onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="text-center rounded-lg w-[40%] p-1 bg-slate-600 text-white text-lg border-none"
-          placeholder="add your todo..."
+          className="flex-1 py-3 px-4 rounded-lg  text-gray-800 text-lg border border-gray-300 focus:outline-none focus:border-yellow-500 text-center bg-neutral-100 "
+          placeholder="Add your todo..."
           value={input}
           maxLength={100}
         />
         <button
-          className={`bg-red-800 rounded-lg ml-2  p-1 text-2xl   ${
-            !input
-              ? "hover:text-slate-500 "
-              : "hover:text- hover: font-semibold hover:bg-green-600"
-          }`}
+          type="submit"
+          className={`ml-4 py-3 px-6 bg-amber-700  text-white text-xl font-semibold rounded-lg transition duration-300 hover:bg-amber-800 disabled:bg-gray-400 disabled:cursor-not-allowed`}
           disabled={!input}
         >
           Add Todo
