@@ -49,6 +49,11 @@ The app will typically be accessible at http://localhost:3000/ in your browser.
 - **Reorder tasks**: Drag and drop tasks to the desired position in the list.
 - **Completed checkbox**: Check the checkbox next to a task to indicate its completion. Completed tasks are typically visually distinguished (e.g., strikethrough text, faded out).
 
-## Live Link
+
+## Landing Page 
+
+![Landing Page ](./src/todohome.png)
+
+ ## Live Link
 
 Check out the live version of the app: [Todo App](https://mytodoapp-v2.netlify.app/)
