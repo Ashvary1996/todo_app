@@ -46,9 +46,13 @@ const todoSlice = createSlice({
       // console.log("Completed", searchTodo.todo, searchTodo.completed);
       localStorage.setItem("myTodos", JSON.stringify(state.todos));
     },
+    reorderTodos: (state, action) => {
+      state.todos = action.payload;
+      localStorage.setItem("myTodos", JSON.stringify(state.todos));
+    },
   },
 });
 
-export const { addTodo, removeTodo, editTodo, checkingcheckBox } =
+export const { addTodo, removeTodo, editTodo, checkingcheckBox, reorderTodos } =
   todoSlice.actions;
 export default todoSlice.reducer;

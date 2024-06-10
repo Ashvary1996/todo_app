@@ -4,7 +4,6 @@
 }
 .App ::selection {
   background-color: rgba(255, 228, 196, 0.559);
-  padding: 10px;
 }
 
 .strikethrough:checked + p {
@@ -13,31 +12,32 @@
 }
 .todoSDiv {
   background-color: rgba(0, 0, 0, 0.54);
- 
 }
 
-@media only screen and (min-width: 200px) and (max-width: 850px) {
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(35, 33, 33, 0.753);
+  color: white;
+  background-image: url("./todoIMg.jpg");
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(3px);
+}
+
+@media (max-width: 850px) {
   .todoBtns {
-    position: static;
-    /* background-color: teal; */
-    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
   }
-  .edit {
-    background-color: rgb(131, 208, 60) !important;
-    border-radius: 100%;
-  }
-  .edit:hover {
-    background-color: rgba(255, 255, 0, 0.779) !important;
-    border-radius: 100%;
-    color: white;
-  }
+  .edit,
   .remove {
-    background-color: rgb(57, 175, 175) !important;
-    border-radius: 100%;
-  }
-  .remove:hover {
-    background-color: rgba(255, 0, 0, 0.747) !important;
-    border-radius: 100%;
-    color: white;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }

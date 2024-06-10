@@ -10,7 +10,17 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover={false}
+        />
         <Routes>
           <Route
             path="/"
