@@ -20,9 +20,9 @@ function Todos() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto p-4">
       {todos.length === 0 ? (
-        <div className="text-4xl text-gray-500 font-semibold text-center mt-10">
+        <div className="text-lg sm:text-2xl md:text-4xl text-gray-500 font-semibold text-center mt-10">
           Start adding Your Todos...
         </div>
       ) : (
@@ -32,7 +32,7 @@ function Todos() {
               <div
                 {...provided.droppableProps}
                 ref={provided.innerRef}
-                className="m-auto mt-8 w-full md:w-3/4 relative"
+                className="m-auto mt-8 w-full sm:w-11/12 md:w-3/4"
               >
                 {todos.map((elem, i) => (
                   <Draggable key={elem.id} draggableId={elem.id} index={i}>
@@ -41,32 +41,36 @@ function Todos() {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        className="todoSDiv text-2xl flex flex-col md:flex-row items-center w-full border gap-2 p-5 mb-5 rounded-lg pb-8"
+                        className="todoSDiv text-white flex items-center w-full border border-gray-600 gap-3 p-3 sm:p-4 mb-4 rounded-md shadow-md"
                       >
-                        <p className="w-10">{i + 1}</p>
+                        <p className="text-sm sm:text-lg w-6 text-center">
+                          {i + 1}
+                        </p>
                         <input
                           type="checkbox"
-                          className="strikethrough mr-4 h-6 w-6 hover:cursor-pointer"
+                          className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer strikethrough  "
                           checked={elem.completed}
                           onChange={() => dispatch(checkingcheckBox(elem.id))}
                         />
-                        <p className="flex-1 text-amber-200">{elem.todo}</p>
-                        <div className="todoBtns flex space-x-2 md:space-x-4 mt-4 md:mt-0">
+                        <p className="flex-1 text-sm sm:text-base md:text-lg  text-amber-200">
+                          {elem.todo}
+                        </p>
+                        <div className="flex gap-2">
                           <Link
                             onClick={(event) => {
                               if (elem.completed) event.preventDefault();
                             }}
-                            className={`edit bg-yellow-500 p-2 rounded-lg transition duration-300 ${
+                            className={`px-2 py-1 text-xs font-mono font-semibold sm:text-sm md:text-base rounded-md transition ${
                               elem.completed
-                                ? "hover:text-gray-400 hover:cursor-not-allowed"
-                                : "hover:text-gray-700"
+                                ? "cursor-not-allowed bg-gray-400 line-through hover:bg-gray-400 "
+                                : " bg-yellow-500 hover:bg-yellow-600 "
                             }`}
                             to={`/edit/${elem.id}`}
                           >
                             Edit
                           </Link>
                           <button
-                            className="remove bg-red-500 p-2 rounded-lg transition duration-300 hover:text-gray-700"
+                            className="px-2 py-1 text-xs sm:text-sm md:text-base rounded-md bg-red-500 hover:bg-red-600 transition"
                             onClick={() => {
                               dispatch(removeTodo(elem.id));
                               toast.warn(`Todo Removed: ${elem.todo}`, {
